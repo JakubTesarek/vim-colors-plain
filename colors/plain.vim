@@ -1,9 +1,12 @@
-" Name:       plain.vim
+" Name:       minimalist.vim
 " Version:    0.1
-" Maintainer: github.com/andreypopp
+" Maintainer: github.com/JakubTesarek
 " License:    The MIT License (MIT)
 "
 " Based on
+"   https://github.com/NerdyPepper/vim-colors-plain (MIT License)
+"
+" which in turn based on
 "
 "   https://github.com/pbrisbin/vim-colors-off (MIT License)
 "
@@ -20,7 +23,8 @@ endif
 
 let g:colors_name='plain'
 
-let s:black           = { "gui": "#222222", "cterm": "0"   }
+let s:black           = { "gui": "#000000", "cterm": "0"   }
+let s:bg_black	      = { "gui": "#121212", "cterm": "233" }
 let s:medium_gray     = { "gui": "#767676", "cterm": "8" }
 let s:white           = { "gui": "#F1F1F1", "cterm": "7"  }
 let s:actual_white    = { "gui": "#FFFFFF", "cterm": "15" }
@@ -29,7 +33,7 @@ let s:lighter_black   = { "gui": "#545454", "cterm": "8" }
 let s:subtle_black    = { "gui": "#303030", "cterm": "11" }
 let s:light_gray      = { "gui": "#999999", "cterm": "12" }
 let s:lighter_gray    = { "gui": "#CCCCCC", "cterm": "7" }
-let s:lightest_gray   = { "gui": "#E5E5E5", "cterm": "13" }
+let s:lightest_gray   = { "gui": "9e9e9e", "cterm": "247" }
 let s:pink            = { "gui": "#FB007A", "cterm": "5"   }
 let s:dark_red        = { "gui": "#C30771", "cterm": "1"   }
 let s:light_red       = { "gui": "#E32791", "cterm": "1"   }
@@ -48,7 +52,7 @@ let s:light_yellow    = { "gui": "#F3E430", "cterm": "3"  }
 let s:dark_yellow     = { "gui": "#A89C14", "cterm": "3"   }
 
 if &background == "dark"
-  let s:bg              = s:black
+  let s:bg              = s:bg_black
   let s:bg_subtle       = s:light_black
   let s:bg_very_subtle  = s:subtle_black
   let s:norm            = s:lighter_gray
@@ -102,7 +106,7 @@ endfunction
 call s:h("Normal",        {"bg": s:bg, "fg": s:norm})
 call s:h("Noise",         {"bg": s:bg, "fg": s:norm_subtle})
 call s:h("Cursor",        {"bg": s:green, "fg": s:norm})
-call s:h("Comment",       {"fg": s:comment, "cterm": "italic"})
+call s:h("Comment",       {"fg": s:comment})
 call s:h("Function",      {"fg": s:norm, "cterm": "bold"})
 
 call s:h("Constant",      {"bg": s:bg, "fg": s:constant})
@@ -149,7 +153,7 @@ hi! link Debug            Special
 call s:h("Underlined",    {"fg": s:norm, "gui": "underline", "cterm": "underline"})
 call s:h("Ignore",        {"fg": s:bg})
 call s:h("Error",         {"fg": s:red, "bg": s:bg, "cterm": "bold"})
-call s:h("Todo",          {"fg": s:actual_white, "bg": s:pink, "gui": "bold", "cterm": "bold"})
+call s:h("Todo",          {"fg": s:lightest_gray, "gui": "bold", "cterm": "bold"})
 call s:h("SpecialKey",    {"fg": s:subtle_black})
 call s:h("NonText",       {"fg": s:medium_gray})
 call s:h("Directory",     {"fg": s:dark_green})
@@ -163,7 +167,7 @@ call s:h("CursorLineNr",  {"fg": s:green, "bg": s:bg_very_subtle})
 call s:h("Question",      {"fg": s:red})
 call s:h("VertSplit",     {"bg": s:bg, "fg": s:bg_very_subtle})
 call s:h("Title",         {"fg": s:dark_green})
-call s:h("Visual",        {"bg": s:visual})
+call s:h("Visual",        {"bg": s:medium_gray, "fg": s:black})
 call s:h("VisualNOS",     {"bg": s:bg_subtle})
 call s:h("WarningMsg",    {"fg": s:warning})
 call s:h("WildMenu",      {"fg": s:white, "bg": s:bg})
@@ -211,6 +215,7 @@ call s:h("TabLineSel",    {"fg": s:norm, "bg": s:bg, "gui": "bold", "cterm": "bo
 call s:h("TabLineFill",   {"fg": s:norm_subtle, "bg": s:bg})
 call s:h("CursorColumn",  {"bg": s:bg_very_subtle})
 call s:h("CursorLine",    {"bg": s:cursor_line})
+call s:h("CursorLineNR",  {"gui": "bold", "cterm": "bold"})
 call s:h("ColorColumn",   {"bg": s:bg_subtle})
 
 call s:h("MatchParen",    {"bg": s:bg_very_subtle, "fg": s:norm})
